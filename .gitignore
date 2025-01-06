@@ -1,4 +1,9 @@
 ######################
+#Create Your Humanity Gitignore
+######################
+createyourhumanity-apikey.txt
+src/main/resources/config/application.yml
+######################
 # Node
 ######################
 /node/
