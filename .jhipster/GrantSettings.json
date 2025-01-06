@@ -1,0 +1,22 @@
+{
+  "annotations": {
+    "changelogDate": "20240723022740"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "grantMap",
+      "fieldType": "String"
+    }
+  ],
+  "name": "GrantSettings",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ]
+}

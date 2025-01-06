@@ -1,0 +1,22 @@
+# This configuration is intended for development purpose, it's **your** responsibility to harden it for production
+name: createyourhumanity
+services:
+  mongodb:
+    image: mongo:7.0.6
+    # If you want to expose these ports outside your dev PC,
+    # remove the "127.0.0.1:" prefix
+    ports:
+      - 27017:27017
+    command: mongos --configdb csvr/createyourhumanity-mongodb-config --bind_ip 0.0.0.0
+    restart: always
+  mongodb-node:
+    build:
+      context: .
+      dockerfile: mongodb/MongoDB.Dockerfile
+    command: mongod --shardsvr --replSet rs1
+    restart: always
+  mongodb-config:
+    image: mongo:7.0.6
+    container_name: createyourhumanity-mongodb-config
+    command: mongod --configsvr --dbpath /data/db --replSet csvr
+    restart: always

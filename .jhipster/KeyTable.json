@@ -1,0 +1,22 @@
+{
+  "annotations": {
+    "changelogDate": "20240723022735"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "key",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "modified",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "name": "KeyTable",
+  "relationships": []
+}

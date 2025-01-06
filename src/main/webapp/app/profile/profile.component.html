@@ -1,0 +1,30 @@
+<p-accordion [activeIndex]="0">
+  <p-accordionTab header="Edit profile picture">
+    <!-- Add this div to display the profile picture -->
+    <div class="profile-picture-container">
+      <img *ngIf="user" [src]="displayUrl" alt="Profile Picture" class="profile-picture" />
+    </div>
+
+    <p-fileUpload
+      name="file"
+      customUpload="true"
+      (uploadHandler)="onUpload($event)"
+      accept="image/*"
+      maxFileSize="1000000"
+      withCredentials="true"
+      mode="basic"
+    >
+      <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+          <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+        </ul>
+      </ng-template>
+    </p-fileUpload>
+  </p-accordionTab>
+  <p-accordionTab header="Add Battle Sentence">
+    <div class="field">
+      <label for="bio">Bio</label>
+      <textarea id="bio" [(ngModel)]="bio" *ngIf="user" [rows]="5" [cols]="30" (change)="onBioChange($event)"></textarea>
+    </div>
+  </p-accordionTab>
+</p-accordion>

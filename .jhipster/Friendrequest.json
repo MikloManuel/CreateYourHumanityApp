@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20240723022738"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "requestDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "requestUserId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "info",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "name": "Friendrequest",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ]
+}

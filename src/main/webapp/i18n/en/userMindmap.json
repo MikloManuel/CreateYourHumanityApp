@@ -1,0 +1,27 @@
+{
+  "createyourhumanityApp": {
+    "userMindmap": {
+      "home": {
+        "title": "User Mindmaps",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new User Mindmap",
+        "createOrEditLabel": "Create or edit a User Mindmap",
+        "search": "Search for User Mindmap",
+        "notFound": "No User Mindmaps found"
+      },
+      "created": "A new User Mindmap is created with identifier {{ param }}",
+      "updated": "A User Mindmap is updated with identifier {{ param }}",
+      "deleted": "A User Mindmap is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Mindmap {{ id }}?"
+      },
+      "detail": {
+        "title": "User Mindmap"
+      },
+      "id": "ID",
+      "text": "Text",
+      "modified": "Modified",
+      "user": "User"
+    }
+  }
+}

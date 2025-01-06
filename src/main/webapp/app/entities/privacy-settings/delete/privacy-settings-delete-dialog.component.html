@@ -1,0 +1,28 @@
+@if (privacySettings) {
+  <form name="deleteForm" (ngSubmit)="confirmDelete(privacySettings.id!)">
+    <div class="modal-header">
+      <h4 class="modal-title" data-cy="privacySettingsDeleteDialogHeading" jhiTranslate="entity.delete.title">Löschen bestätigen</h4>
+    </div>
+
+    <div class="modal-body">
+      <jhi-alert-error></jhi-alert-error>
+      <p
+        id="jhi-delete-privacySettings-heading"
+        jhiTranslate="createyourhumanityApp.privacySettings.delete.question"
+        [translateValues]="{ id: privacySettings.id }"
+      >
+        Soll Privacy Settings {{ privacySettings.id }} wirklich dauerhaft gelöscht werden?
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Abbrechen</span>
+      </button>
+
+      <button id="jhi-confirm-delete-privacySettings" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+        <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">Löschen</span>
+      </button>
+    </div>
+  </form>
+}

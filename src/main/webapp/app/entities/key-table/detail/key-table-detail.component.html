@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (keyTable()) {
+      <div>
+        <h2 data-cy="keyTableDetailsHeading"><span jhiTranslate="createyourhumanityApp.keyTable.detail.title">Key Table</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ keyTable()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.keyTable.key">Key</span></dt>
+          <dd>
+            <span>{{ keyTable()!.key }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.keyTable.created">Created</span></dt>
+          <dd>
+            <span>{{ keyTable()!.created | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.keyTable.modified">Modified</span></dt>
+          <dd>
+            <span>{{ keyTable()!.modified | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Zurück</span>
+        </button>
+
+        <button type="button" [routerLink]="['/key-table', keyTable()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Bearbeiten</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

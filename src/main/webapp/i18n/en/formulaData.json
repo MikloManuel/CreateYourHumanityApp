@@ -1,0 +1,28 @@
+{
+  "createyourhumanityApp": {
+    "formulaData": {
+      "home": {
+        "title": "Formula Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Formula Data",
+        "createOrEditLabel": "Create or edit a Formula Data",
+        "search": "Search for Formula Data",
+        "notFound": "No Formula Data found"
+      },
+      "created": "A new Formula Data is created with identifier {{ param }}",
+      "updated": "A Formula Data is updated with identifier {{ param }}",
+      "deleted": "A Formula Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Formula Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Formula Data"
+      },
+      "id": "ID",
+      "map": "Map",
+      "created": "Created",
+      "modified": "Modified",
+      "user": "User"
+    }
+  }
+}

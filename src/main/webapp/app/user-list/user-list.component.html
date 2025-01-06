@@ -1,0 +1,39 @@
+<h1 jhiTranslate="custom.user-list.user-directory">User directory</h1>
+<div class="grid">
+  <div *ngFor="let extendedUser of users$ | async" class="col-12 sm:col-6 md:col-4 lg:3">
+    <p-card
+      [header]="extendedUser.account.firstName + ' ' + extendedUser.account.lastName"
+      [subheader]="extendedUser.account.login"
+      [style]="{ width: '450px' }"
+    >
+      <ng-template pTemplate="header">
+        <img
+          *ngIf="extendedUser.account.imageUrl"
+          [src]="extendedUser.account.imageUrl"
+          alt="Profile Picture"
+          style="width: 100%; height: auto"
+        />
+      </ng-template>
+      <p>
+        {{ extendedUser.account.bio || 'No bio available' }}
+      </p>
+      <ng-template pTemplate="footer">
+        <div class="flex gap-3 mt-1">
+          <jhi-app-send-request-button-wrapper
+            [userId]="currentUser.user.id"
+            [targetUserId]="extendedUser.user.id"
+            (sendRequest)="sendFriendRequest(extendedUser.user.id)"
+          ></jhi-app-send-request-button-wrapper>
+          <p-button
+            type="button"
+            [raised]="true"
+            styleClass="round-button"
+            [rounded]="true"
+            icon="pi pi-table"
+            label="View Profile"
+            (click)="navigateToProfile(extendedUser.user.id)"
+          ></p-button>
+        </div>
+      </ng-template>
+    </p-card>
+  </div></div>

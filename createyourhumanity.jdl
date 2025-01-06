@@ -1,0 +1,59 @@
+entity MindmapXml {
+    text String
+    modified ZonedDateTime
+}
+
+entity FormulaData {
+    map String
+    created ZonedDateTime
+    modified ZonedDateTime
+}
+
+entity UserMindmap {
+    text String
+    modified ZonedDateTime
+}
+
+entity KeyTable {
+    key String
+    created ZonedDateTime
+    modified ZonedDateTime
+}
+
+entity UserDetails {
+    dob ZonedDateTime
+    created ZonedDateTime
+    modified ZonedDateTime
+}
+
+entity Friends {
+    connectDate ZonedDateTime
+    friendId String
+}
+
+entity Friendrequest {
+    requestDate ZonedDateTime
+    requestUserId String
+    info TextBlob
+}
+
+entity PrivacySettings {
+    settingsMap String
+}
+
+entity GrantSettings {
+    grantMap String
+}
+
+relationship OneToOne {
+    UserDetails{user} to User with builtInEntity
+    PrivacySettings{user} to User with builtInEntity
+    GrantSettings{user} to User with builtInEntity
+}
+
+relationship ManyToOne {
+    FormulaData{user} to User with builtInEntity
+    UserMindmap{user} to User with builtInEntity
+    Friends{user} to User with builtInEntity
+    Friendrequest{user} to User with builtInEntity
+}

@@ -1,0 +1,26 @@
+{
+  "annotations": {
+    "changelogDate": "20240723022734"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modified",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "name": "UserMindmap",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ]
+}

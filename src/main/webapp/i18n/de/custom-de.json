@@ -1,0 +1,17 @@
+{
+  "custom": {
+    "webform": {
+      "title": "Webformular"
+    },
+    "user-list": {
+      "title": "Benutzerverzeichnis",
+      "user-directory": "Benutzerverzeichnis"
+    },
+    "profile": {
+      "title": "Profil"
+    },
+    "settings": {
+      "title": "Einstellungen"
+    }
+  }
+}

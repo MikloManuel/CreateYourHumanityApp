@@ -1,0 +1,26 @@
+{
+  "createyourhumanityApp": {
+    "privacySettings": {
+      "home": {
+        "title": "Privacy Settings",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Privacy Settings erstellen",
+        "createOrEditLabel": "Privacy Settings erstellen oder bearbeiten",
+        "search": "Suche nach Privacy Settings",
+        "notFound": "Keine Privacy Settings gefunden"
+      },
+      "created": "Privacy Settings erstellt mit ID {{ param }}",
+      "updated": "Privacy Settings aktualisiert mit ID {{ param }}",
+      "deleted": "Privacy Settings gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Privacy Settings {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Privacy Settings"
+      },
+      "id": "ID",
+      "settingsMap": "Settings Map",
+      "user": "User"
+    }
+  }
+}

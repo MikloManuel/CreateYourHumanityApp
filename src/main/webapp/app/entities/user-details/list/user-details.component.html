@@ -1,0 +1,140 @@
+<div>
+  <h2 id="page-heading" data-cy="UserDetailsHeading">
+    <span jhiTranslate="createyourhumanityApp.userDetails.home.title">User Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="createyourhumanityApp.userDetails.home.refreshListLabel">Liste aktualisieren</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-user-details"
+        [routerLink]="['/user-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span class="hidden-sm-down" jhiTranslate="createyourhumanityApp.userDetails.home.createLabel">User Details erstellen</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <form name="searchForm" class="row row-cols-sm-auto align-items-center">
+    <div class="col-sm-12">
+      <div class="input-group w-100 mt-3">
+        <label class="visually-hidden" for="currentSearch" jhiTranslate="createyourhumanityApp.userDetails.home.search"
+          >Suche nach User Details</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="currentSearch"
+          id="currentSearch"
+          name="currentSearch"
+          placeholder="{{ 'createyourhumanityApp.userDetails.home.search' | translate }}"
+        />
+
+        <button class="btn btn-info" (click)="search(currentSearch)">
+          <fa-icon icon="search"></fa-icon>
+        </button>
+
+        @if (currentSearch) {
+          <button class="btn btn-danger" (click)="search('')">
+            <fa-icon icon="trash-alt"></fa-icon>
+          </button>
+        }
+      </div>
+    </div>
+  </form>
+
+  @if (userDetails?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="createyourhumanityApp.userDetails.home.notFound">Keine User Details gefunden</span>
+    </div>
+  }
+
+  @if (userDetails && userDetails.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+                @if (!currentSearch) {
+                  <fa-icon class="p-1" icon="sort"></fa-icon>
+                }
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dob">
+              <div class="d-flex">
+                <span jhiTranslate="createyourhumanityApp.userDetails.dob">Dob</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="created">
+              <div class="d-flex">
+                <span jhiTranslate="createyourhumanityApp.userDetails.created">Created</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="modified">
+              <div class="d-flex">
+                <span jhiTranslate="createyourhumanityApp.userDetails.modified">Modified</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="user.id">
+              <div class="d-flex">
+                <span jhiTranslate="createyourhumanityApp.userDetails.user">User</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (userDetails of userDetails; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/user-details', userDetails.id, 'view']">{{ userDetails.id }}</a>
+              </td>
+              <td>{{ userDetails.dob | formatMediumDatetime }}</td>
+              <td>{{ userDetails.created | formatMediumDatetime }}</td>
+              <td>{{ userDetails.modified | formatMediumDatetime }}</td>
+              <td>
+                {{ userDetails.user?.id }}
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/user-details', userDetails.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Details</span>
+                  </a>
+
+                  <a [routerLink]="['/user-details', userDetails.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Bearbeiten</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(userDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Löschen</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

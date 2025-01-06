@@ -1,0 +1,26 @@
+{
+  "createyourhumanityApp": {
+    "grantSettings": {
+      "home": {
+        "title": "Grant Settings",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Grant Settings erstellen",
+        "createOrEditLabel": "Grant Settings erstellen oder bearbeiten",
+        "search": "Suche nach Grant Settings",
+        "notFound": "Keine Grant Settings gefunden"
+      },
+      "created": "Grant Settings erstellt mit ID {{ param }}",
+      "updated": "Grant Settings aktualisiert mit ID {{ param }}",
+      "deleted": "Grant Settings gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Grant Settings {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Grant Settings"
+      },
+      "id": "ID",
+      "grantMap": "Grant Map",
+      "user": "User"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (friends()) {
+      <div>
+        <h2 data-cy="friendsDetailsHeading"><span jhiTranslate="createyourhumanityApp.friends.detail.title">Friends</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ friends()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.friends.connectDate">Connect Date</span></dt>
+          <dd>
+            <span>{{ friends()!.connectDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.friends.friendId">Friend Id</span></dt>
+          <dd>
+            <span>{{ friends()!.friendId }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.friends.user">User</span></dt>
+          <dd>
+            <span>{{ friends()!.user?.id }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Zurück</span>
+        </button>
+
+        <button type="button" [routerLink]="['/friends', friends()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Bearbeiten</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

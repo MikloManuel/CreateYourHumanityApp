@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (mindmapXml()) {
+      <div>
+        <h2 data-cy="mindmapXmlDetailsHeading"><span jhiTranslate="createyourhumanityApp.mindmapXml.detail.title">Mindmap Xml</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ mindmapXml()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.mindmapXml.text">Text</span></dt>
+          <dd>
+            <span>{{ mindmapXml()!.text }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.mindmapXml.modified">Modified</span></dt>
+          <dd>
+            <span>{{ mindmapXml()!.modified | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Zurück</span>
+        </button>
+
+        <button type="button" [routerLink]="['/mindmap-xml', mindmapXml()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Bearbeiten</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

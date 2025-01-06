@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20240723022736"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "dob",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "modified",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "name": "UserDetails",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ]
+}

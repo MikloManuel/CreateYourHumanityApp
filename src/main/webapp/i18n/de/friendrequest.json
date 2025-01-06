@@ -1,0 +1,28 @@
+{
+  "createyourhumanityApp": {
+    "friendrequest": {
+      "home": {
+        "title": "Friendrequests",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Friendrequest erstellen",
+        "createOrEditLabel": "Friendrequest erstellen oder bearbeiten",
+        "search": "Suche nach Friendrequest",
+        "notFound": "Keine Friendrequests gefunden"
+      },
+      "created": "Friendrequest erstellt mit ID {{ param }}",
+      "updated": "Friendrequest aktualisiert mit ID {{ param }}",
+      "deleted": "Friendrequest gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Friendrequest {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Friendrequest"
+      },
+      "id": "ID",
+      "requestDate": "Request Date",
+      "requestUserId": "Request User Id",
+      "info": "Info",
+      "user": "User"
+    }
+  }
+}

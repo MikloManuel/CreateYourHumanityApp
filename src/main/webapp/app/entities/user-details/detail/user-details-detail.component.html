@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (userDetails()) {
+      <div>
+        <h2 data-cy="userDetailsDetailsHeading"><span jhiTranslate="createyourhumanityApp.userDetails.detail.title">User Details</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ userDetails()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.userDetails.dob">Dob</span></dt>
+          <dd>
+            <span>{{ userDetails()!.dob | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.userDetails.created">Created</span></dt>
+          <dd>
+            <span>{{ userDetails()!.created | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.userDetails.modified">Modified</span></dt>
+          <dd>
+            <span>{{ userDetails()!.modified | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.userDetails.user">User</span></dt>
+          <dd>
+            <span>{{ userDetails()!.user?.id }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Zurück</span>
+        </button>
+
+        <button type="button" [routerLink]="['/user-details', userDetails()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Bearbeiten</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

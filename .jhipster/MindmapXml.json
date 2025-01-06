@@ -1,0 +1,18 @@
+{
+  "annotations": {
+    "changelogDate": "20240723022732"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modified",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "name": "MindmapXml",
+  "relationships": []
+}

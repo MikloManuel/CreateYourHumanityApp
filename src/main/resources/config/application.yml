@@ -1,0 +1,228 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overridden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+---
+# Conditionally disable springdoc on missing api-docs profile
+
+logging:
+  level:
+    ROOT: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    com.createyourhumanity: DEBUG
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:8761/eureka/
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+
+spring:
+  application:
+    name: createyourhumanity
+  cloud:
+    config:
+      uri: http://admin:admin@localhost:8761/config
+  config:
+    activate:
+      on-profile: '!api-docs'
+  ai:
+    openai:
+      api-key: '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'
+  web:
+    resources:
+      static-locations: classpath:/static/,classpath:/public/,classpath:/resources/,classpath:/META-INF/resources/,file:src/main/webapp/content/
+  jmx:
+    enabled: false
+  messages:
+    basename: i18n/messages
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    problemdetails:
+      enabled: true
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: http://localhost:9080/realms/heartfull-mind-ecosystems
+        registration:
+          oidc:
+            client-id: createyourhumanity-eco1
+            client-secret: oqwZ1QBUiB9iIZ4O6YlPUFxRl92BZ3yw
+            scope: openid,profile,email,roles,offline_access
+  task:
+    execution:
+      thread-name-prefix: createyourhumanity-task-
+      pool:
+        core-size: 2
+        max-size: 50
+        queue-capacity: 10000
+    scheduling:
+      thread-name-prefix: createyourhumanity-scheduling-
+      pool:
+        size: 2
+  thymeleaf:
+    mode: HTML
+  output:
+    ansi:
+      console-available: true
+springdoc:
+  api-docs:
+    enabled: false
+---
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include:
+          - configprops
+          - env
+          - health
+          - info
+          - jhimetrics
+          - jhiopenapigroups
+          - logfile
+          - loggers
+          - prometheus
+          - threaddump
+          - caches
+          - endpoints
+  endpoint:
+    health:
+      show-details: WHEN_AUTHORIZED
+      roles: 'ROLE_ADMIN'
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState
+    jhimetrics:
+      enabled: true
+  info:
+    git:
+      mode: full
+    env:
+      enabled: true
+  health:
+    mail:
+      enabled: false # When using the MailService, configure an SMTP server and set this to true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+        step: 60
+  observations:
+    key-values:
+      application: ${spring.application.name}
+  metrics:
+    enable:
+      http: true
+      jvm: true
+      logback: true
+      process: true
+      system: true
+    distribution:
+      percentiles-histogram:
+        all: true
+      percentiles:
+        all: 0, 0.5, 0.75, 0.95, 0.99, 1.0
+    data:
+      repository:
+        autotime:
+          enabled: true
+
+mongock:
+  migration-scan-package:
+    - space.createyourhumanity.app.config.dbmigrations
+
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true
+
+springdoc:
+  show-actuator: true
+
+# Properties to be exposed on the /info management endpoint
+info:
+  # Comma separated list of profiles that will trigger the ribbon to show
+  display-ribbon-on-profiles: 'dev'
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+  clientApp:
+    name: 'createyourhumanityApp'
+  mail:
+    from: createyourhumanity@localhost
+  api-docs:
+    default-include-pattern: /api/**
+    management-include-pattern: /management/**
+    title: Createyourhumanity API
+    description: Createyourhumanity API documentation
+    version: 0.0.1
+    terms-of-service-url:
+    contact-name:
+    contact-url:
+    contact-email:
+    license: unlicensed
+    license-url:
+  security:
+    content-security-policy: "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:9000 http://localhost:4040 http://localhost:8080; style-src 'self' 'unsafe-inline' http://localhost:4040 http://localhost:4040/content/vendors-node_modules_pnpm_patternfly_react-core_6_1_0_react-dom_18_3_1_react_18_3_1_node_modu-ba997c.f50f287cb1b279fd2c52.css; style-src-elem 'self' 'unsafe-inline' http://localhost:4040 http://localhost:4040/content/vendors-node_modules_pnpm_patternfly_react-core_6_1_0_react-dom_18_3_1_react_18_3_1_node_modu-ba997c.f50f287cb1b279fd2c52.css; img-src 'self' data:; font-src 'self' data:; connect-src 'self' http://localhost:9000 ws://localhost:* http://localhost:4040 http://localhost:9001 http://localhost:8080 http://localhost:9080"
+    oauth2:
+      audience:
+        - account
+        - api://default
+        - http://localhost:9080/realms/heartfull-mind-ecosystems
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
+
+keycloak:
+  auth-server-url: http://localhost:9080
+  realm: heartfull-mind-ecosystems
+  resource: createyourhumanity-eco1
+  credentials:
+    secret: oqwZ1QBUiB9iIZ4O6YlPUFxRl92BZ3yw
+
+  quarkus:
+    datasource:
+      db-kind: postgresql
+      username: heartfullmind
+      password: ihMMuka8243
+      jdbc.url: jdbc:postgresql://localhost:5432/heartfullmind
+

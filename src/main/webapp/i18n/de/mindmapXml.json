@@ -1,0 +1,26 @@
+{
+  "createyourhumanityApp": {
+    "mindmapXml": {
+      "home": {
+        "title": "Mindmap Xmls",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Mindmap Xml erstellen",
+        "createOrEditLabel": "Mindmap Xml erstellen oder bearbeiten",
+        "search": "Suche nach Mindmap Xml",
+        "notFound": "Keine Mindmap Xmls gefunden"
+      },
+      "created": "Mindmap Xml erstellt mit ID {{ param }}",
+      "updated": "Mindmap Xml aktualisiert mit ID {{ param }}",
+      "deleted": "Mindmap Xml gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Mindmap Xml {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Mindmap Xml"
+      },
+      "id": "ID",
+      "text": "Text",
+      "modified": "Modified"
+    }
+  }
+}

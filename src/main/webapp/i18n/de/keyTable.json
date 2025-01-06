@@ -1,0 +1,27 @@
+{
+  "createyourhumanityApp": {
+    "keyTable": {
+      "home": {
+        "title": "Key Tables",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Key Table erstellen",
+        "createOrEditLabel": "Key Table erstellen oder bearbeiten",
+        "search": "Suche nach Key Table",
+        "notFound": "Keine Key Tables gefunden"
+      },
+      "created": "Key Table erstellt mit ID {{ param }}",
+      "updated": "Key Table aktualisiert mit ID {{ param }}",
+      "deleted": "Key Table gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Key Table {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Key Table"
+      },
+      "id": "ID",
+      "key": "Key",
+      "created": "Created",
+      "modified": "Modified"
+    }
+  }
+}

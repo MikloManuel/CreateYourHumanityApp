@@ -1,0 +1,27 @@
+{
+  "createyourhumanityApp": {
+    "friends": {
+      "home": {
+        "title": "Friends",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Friends erstellen",
+        "createOrEditLabel": "Friends erstellen oder bearbeiten",
+        "search": "Suche nach Friends",
+        "notFound": "Keine Friends gefunden"
+      },
+      "created": "Friends erstellt mit ID {{ param }}",
+      "updated": "Friends aktualisiert mit ID {{ param }}",
+      "deleted": "Friends gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Friends {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Friends"
+      },
+      "id": "ID",
+      "connectDate": "Connect Date",
+      "friendId": "Friend Id",
+      "user": "User"
+    }
+  }
+}

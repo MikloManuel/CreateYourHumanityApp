@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (formulaData()) {
+      <div>
+        <h2 data-cy="formulaDataDetailsHeading"><span jhiTranslate="createyourhumanityApp.formulaData.detail.title">Formula Data</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ formulaData()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.formulaData.map">Map</span></dt>
+          <dd>
+            <span>{{ formulaData()!.map }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.formulaData.created">Created</span></dt>
+          <dd>
+            <span>{{ formulaData()!.created | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.formulaData.modified">Modified</span></dt>
+          <dd>
+            <span>{{ formulaData()!.modified | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.formulaData.user">User</span></dt>
+          <dd>
+            <span>{{ formulaData()!.user?.id }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Zurück</span>
+        </button>
+
+        <button type="button" [routerLink]="['/formula-data', formulaData()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Bearbeiten</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

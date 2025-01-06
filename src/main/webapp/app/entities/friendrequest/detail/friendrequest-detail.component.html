@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (friendrequest()) {
+      <div>
+        <h2 data-cy="friendrequestDetailsHeading">
+          <span jhiTranslate="createyourhumanityApp.friendrequest.detail.title">Friendrequest</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ friendrequest()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.friendrequest.requestDate">Request Date</span></dt>
+          <dd>
+            <span>{{ friendrequest()!.requestDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.friendrequest.requestUserId">Request User Id</span></dt>
+          <dd>
+            <span>{{ friendrequest()!.requestUserId }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.friendrequest.info">Info</span></dt>
+          <dd>
+            <span>{{ friendrequest()!.info }}</span>
+          </dd>
+          <dt><span jhiTranslate="createyourhumanityApp.friendrequest.user">User</span></dt>
+          <dd>
+            <span>{{ friendrequest()!.user?.id }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Zurück</span>
+        </button>
+
+        <button type="button" [routerLink]="['/friendrequest', friendrequest()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Bearbeiten</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

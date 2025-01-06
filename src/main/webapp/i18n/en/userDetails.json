@@ -1,0 +1,28 @@
+{
+  "createyourhumanityApp": {
+    "userDetails": {
+      "home": {
+        "title": "User Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new User Details",
+        "createOrEditLabel": "Create or edit a User Details",
+        "search": "Search for User Details",
+        "notFound": "No User Details found"
+      },
+      "created": "A new User Details is created with identifier {{ param }}",
+      "updated": "A User Details is updated with identifier {{ param }}",
+      "deleted": "A User Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Details {{ id }}?"
+      },
+      "detail": {
+        "title": "User Details"
+      },
+      "id": "ID",
+      "dob": "Dob",
+      "created": "Created",
+      "modified": "Modified",
+      "user": "User"
+    }
+  }
+}

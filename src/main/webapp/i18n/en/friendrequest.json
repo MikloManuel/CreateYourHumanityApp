@@ -1,0 +1,28 @@
+{
+  "createyourhumanityApp": {
+    "friendrequest": {
+      "home": {
+        "title": "Friendrequests",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Friendrequest",
+        "createOrEditLabel": "Create or edit a Friendrequest",
+        "search": "Search for Friendrequest",
+        "notFound": "No Friendrequests found"
+      },
+      "created": "A new Friendrequest is created with identifier {{ param }}",
+      "updated": "A Friendrequest is updated with identifier {{ param }}",
+      "deleted": "A Friendrequest is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Friendrequest {{ id }}?"
+      },
+      "detail": {
+        "title": "Friendrequest"
+      },
+      "id": "ID",
+      "requestDate": "Request Date",
+      "requestUserId": "Request User Id",
+      "info": "Info",
+      "user": "User"
+    }
+  }
+}

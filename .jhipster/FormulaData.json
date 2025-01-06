@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20240723022733"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "map",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "modified",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "name": "FormulaData",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ]
+}

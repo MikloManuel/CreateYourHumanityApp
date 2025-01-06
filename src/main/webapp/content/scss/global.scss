@@ -1,0 +1,305 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'primeicons/primeicons.css';
+/* ==============================================================
+Bootstrap tweaks
+===============================================================*/
+
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+/* Increase contrast of links to get 100% on Lighthouse Accessibility Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
+a {
+  color: #533f03;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #533f03;
+}
+
+/* override hover color for dropdown-item forced by bootstrap to all a:not([href]):not([tabindex]) elements in _reboot.scss */
+a:not([href]):not([tabindex]):hover.dropdown-item {
+  color: $dropdown-link-hover-color;
+}
+
+/* override .dropdown-item.active background-color on hover
+.dropdown-item.active:hover {
+  background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
+}
+*/
+
+a:hover {
+  /* make sure browsers use the pointer cursor for anchors, even with no href */
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  color: $dropdown-link-hover-color;
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+
+/* Error highlight on input fields */
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid green;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid red;
+}
+
+/* other generic styles */
+
+.jh-card {
+  padding: 1.5%;
+  margin-top: 20px;
+  border: none;
+}
+
+.error {
+  color: white;
+  background-color: red;
+}
+
+.pad {
+  padding: 10px;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+.break {
+  white-space: normal;
+  word-break: break-all;
+}
+
+.form-control {
+  background-color: #fff;
+}
+
+.readonly {
+  background-color: #eee;
+  opacity: 1;
+}
+
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.hand,
+[jhisortby] {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+.alerts {
+  .alert {
+    text-overflow: ellipsis;
+    pre {
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+    }
+    .popover pre {
+      font-size: 10px;
+    }
+  }
+  .jhi-toast {
+    position: fixed;
+    width: 100%;
+    &.left {
+      left: 5px;
+    }
+    &.right {
+      right: 5px;
+    }
+    &.top {
+      top: 55px;
+    }
+    &.bottom {
+      bottom: 55px;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .alerts .jhi-toast {
+    width: 50%;
+  }
+}
+
+/* ==========================================================================
+entity list page css
+========================================================================== */
+
+.table-entities thead th .d-flex > * {
+  margin: auto 0;
+}
+
+/* ==========================================================================
+entity detail page css
+========================================================================== */
+.row-md.jh-entity-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  .row-md.jh-entity-details > {
+    dt {
+      float: left;
+      overflow: hidden;
+      clear: left;
+      text-align: right;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0.5em 0;
+    }
+    dd {
+      border-bottom: 1px solid #eee;
+      padding: 0.5em 0;
+      margin-left: 0;
+    }
+  }
+}
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+
+.thread-dump-modal-lock {
+  max-width: 450px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-menu {
+  padding-left: 0px;
+}
+
+/* ==========================================================================
+angular-cli removes postcss-rtl processed inline css, processed rules must be added here instead
+========================================================================== */
+/* page-ribbon.component.scss */
+.ribbon {
+  left: -3.5em;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/* navbar.component.scss */
+.navbar {
+  ul.navbar-nav {
+    .nav-item {
+      margin-left: 0.5em;
+    }
+  }
+}
+/* jhipster-needle-scss-add-main JHipster will add new css style */
+
+/* ==============================================================
+Cards from PrimeNG
+===============================================================*/
+
+/*
+@import '~primeng/resources/themes/lara-light-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
+*/
+
+.p-card {
+  background: var(--cp-card-bg);
+  color: var(--cp-card-color);
+  border: var(--cp-card-border);
+  border-radius: var(--cp-card-border-radius);
+  margin: var(--cp-card-title-margin-bottom);
+  border-radius: 0px 0px 10px 10px;
+  padding: 10px;
+
+  .p-card-body {
+    padding: var(--cp-card-padding);
+  }
+
+  .p-card-title {
+    font-size: var(--cp-card-title-font-size);
+    font-weight: var(--cp-card-title-font-weight);
+    margin-bottom: var(--cp-card-title-margin-bottom);
+  }
+
+  .p-card-subtitle {
+    font-weight: var(--cp-card-subtitle-font-weight);
+    margin-bottom: var(--cp-card-subtitle-margin-bottom);
+  }
+
+  .p-card-content {
+    padding: var(--cp-card-content-padding);
+  }
+
+  .p-card-footer {
+    padding: var(--cp-card-footer-padding);
+    background: var(--cp-card-footer-bg);
+    color: var(--cp-card-footer-color);
+    border-radius: 10px 10px var(--cp-card-border-radius) var(--cp-card-border-radius);
+  }
+  .round-button {
+    border-radius: 10% !important;
+    width: 200px; /* Adjust as needed */
+    height: 60px; /* Adjust as needed */
+    padding: 0;
+  }
+}
+
+.profile-picture-container {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

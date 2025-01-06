@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-friends-heading" data-cy="FriendsCreateUpdateHeading" jhiTranslate="createyourhumanityApp.friends.home.createOrEditLabel">
+        Friends erstellen oder bearbeiten
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="createyourhumanityApp.friends.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_connectDate" jhiTranslate="createyourhumanityApp.friends.connectDate">Connect Date</label>
+          <div class="d-flex">
+            <input
+              id="field_connectDate"
+              data-cy="connectDate"
+              type="datetime-local"
+              class="form-control"
+              name="connectDate"
+              formControlName="connectDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_friendId" jhiTranslate="createyourhumanityApp.friends.friendId">Friend Id</label>
+          <input type="text" class="form-control" name="friendId" id="field_friendId" data-cy="friendId" formControlName="friendId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_user" jhiTranslate="createyourhumanityApp.friends.user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user" [compareWith]="compareUser">
+            <option [ngValue]="null"></option>
+            @for (userOption of usersSharedCollection; track $index) {
+              <option [ngValue]="userOption">{{ userOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Abbrechen</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Speichern</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "annotations": {
+    "changelogDate": "20240723022739"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "settingsMap",
+      "fieldType": "String"
+    }
+  ],
+  "name": "PrivacySettings",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ]
+}
